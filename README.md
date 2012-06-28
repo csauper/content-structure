@@ -1,8 +1,8 @@
 Incorporating Content Structure into Text Analysis Applications
 ===============================================================
 
-Christina Sauper        Aria Haghighi      Regina Barzilay
-csauper@csail.mit.edu   aria42@gmail.com   regina@csail.mit.edu
+Christina Sauper      |  Aria Haghighi     | Regina Barzilay  
+csauper@csail.mit.edu |  aria42@gmail.com  | regina@csail.mit.edu  
 
 Abstract
 --------
