@@ -37,24 +37,24 @@ recommend installing maven2, then compiling with `mvn compile` in the base
 directory.  After that, run the system as follows (substituting your desired
 config file and memory usage): 
 
-java -ea -server -mx5G -Djava.ext.dirs=lib -cp target/classes phrase.jointtopic.Main amazon-conf.yaml
+`java -ea -server -mx5G -Djava.ext.dirs=lib -cp target/classes phrase.jointtopic.Main amazon-conf.yaml`
 
 
 Config files
 ------------
 
-amazon-conf.yaml
-yelp-conf.yaml
+`amazon-conf.yaml`
+`yelp-conf.yaml`
 
   These are the config files which specify parameters for the model.  See
   GlobalOptions.java for more potential options.
 
-conf/amazon.list
-conf/yelp.list
+`conf/amazon.list`
+`conf/yelp.list`
 
-  Lists of token files (see below for format).  Those marked as TRAIN_LABELED
-  will be used as labeled input documents; those marked as TEST_LABELED will be
-  used at test time.
+  Lists of token files (see below for format).  Those marked as
+  `TRAIN_LABELED` will be used as labeled input documents; those marked as
+  `TEST_LABELED` will be used at test time.
 
 
 
@@ -68,13 +68,30 @@ labeled, 31k unlabeled), and a set of IGN DVD reviews (665 labeled).
 Formats
 -------
 
-*.tok
+`*.tok`
 
   Tokenized file, one word per line.  The columns of this file are as follows:
-    word  sentence #  word #(sent)  start-char  end-char  start-char(sent)  end-char(sent)
+    `word  sentence #  word #(sent)  start-char  end-char  start-char(sent) end-char(sent)`
 
-*.ann
+`*.ann`
   
   Annotations corresponding to the tokenized file; one word's label per line.
   Some annotation files are tagged with begin / inside / end tokens; ability to
   automatically strip these is controlled by an option in the config file.
+
+Demo
+====
+
+A demo system is online at http://condensr.com.  Backend code is online at
+https://github.com/csauper/condensr.
+
+The demo system puts together results from multi-aspect phrase extraction on
+Yelp reviews with Google maps and other restaurant metadata in order to
+display a concise summary of restaurants based on a search in a particular
+area.
+
+Each restaurant summary presents the following:
+* Basic restaurant information (name, address, location)
+* Automatically extracted and categorized highlights from all Yelp reviews for the restaurant in several categories (food, ambiance, service, value, overall)
+* Automatically determined sentiment classification (positive, negative, neutral)
+* Supporting highlights to expand on the main points
