@@ -1,0 +1,38 @@
+exec:
+  tag: amazon
+  execPoolDir: execs/amazon/
+
+main:
+  op: train
+  dataZip: data.zip
+  fileList: conf/amazon.list
+  binaryTask: false
+  stripBIE: false
+  hmmDocWordCutoff: 1
+
+crf:
+  sigmaSquared: 0.1
+  useTopicFeatures: true
+  cachePredTrainData: true
+  maxHistoryResets: 3
+  datumPostThresh: 0.0
+  reuseWeights: true
+
+inference:
+  recallPenalty: 5.0  
+  
+iters:
+  numIters: 250
+  numStage1Iters: 200
+  CRFInterval: 1
+
+output:
+  printInterval: 1
+
+hmm:  
+  K: 7
+  ignoreLabeledParams: true
+  emissionLambda: 1.0
+  backgroundEmissionLambda: 1.0e-4
+  transitionLambda: 5.0
+  alpha: 0.85

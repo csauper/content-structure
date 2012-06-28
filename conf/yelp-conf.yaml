@@ -1,0 +1,39 @@
+--- 
+crf: 
+  reuseWeights: true
+  maxHistoryResets: 3
+  datumPostThresh: 0.0
+  sigmaSquared: 0.05
+  cachePredTrainData: true
+  lowerCaseFeature: true
+  useTopicFeatures: true
+  hierRegularizer: true
+  lowerCase: false
+  fineSigmaSquared: 0.025
+output: 
+  printInterval: 1
+iters: 
+  numStage1Iters: 200
+  CRFInterval: 1
+  numIters: 250
+inference: 
+  recallPenalty: 4.0
+main: 
+  op: train
+  dataZip: data.zip
+  binaryTask: false
+  stripBIE: true
+  fileList: conf/yelp.list
+  hmmDocWordCutoff: 1
+  pos: src/main/resources/pos
+hmm: 
+  K: 7
+  emissionLambda: 1.0
+  backgroundEmissionLambda: 0.0001
+  ignoreLabeledParams: false
+  transitionLambda: 5.0
+  unlabeledScale: 0.5
+  alpha: 0.85
+exec: 
+  execPoolDir: execs/yelp/
+  tag: yelp
